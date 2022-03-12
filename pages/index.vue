@@ -2,7 +2,7 @@
   <div>
     <!-- <App/> -->
     <!-- <Header /> -->
-    <Main />
+    <!-- <Main />
     <Offer />
     <About-us />
     <Benefits />
@@ -13,9 +13,9 @@
     <Additional-service/>
     <Events/>
     <Space/>
-    <News-section/>
+    <News-section/> -->
     <Gallery/>
-    <Our-team/>
+    <!-- <Our-team/> -->
     <!-- <Carousel/> -->
     <!-- <CarouselSlide/> -->
     <!-- <Slider-with-big-picture/> -->
