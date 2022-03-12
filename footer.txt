@@ -1,0 +1,269 @@
+<template>
+  <div class="wrapper">
+    <div class="footer-container">
+      <div class="inner-wrapper">
+        <div class="footer-wrapper">
+          <div class="contacts-wrapper">
+            <div class="contacts">
+              <img src="../img/footer/phone.png" alt="" />
+              <p class="phone-img">+7 (727) 313 20 50</p>
+              <p>+7 (778) 200 20 50</p>
+              <p>+7 (777) 078 87 78</p>
+              <p>+7 (777) 078 88 33</p>
+            </div>
+            <div class="contacts-name">
+              <p>Ресепшн SmArt.Point</p>
+              <p>Ресепшн SmArt.Point</p>
+              <p>Аренда сервисных офисов коворкинг-мест</p>
+              <p>
+                Локаций для съемок, <br />
+                размещение рекламы booking5
+              </p>
+            </div>
+          </div>
+          <div class="nav">
+            <ul>
+              <li class="about-us"><a href="#about-us">О нас</a></li>
+              <li class="out-team"><a href="#our-team">Наша команда</a></li>
+              <li class="community"><a href="#community"> Коммьюнити</a></li>
+              <li class="gallery"><a href="#gallery">Галлерея</a></li>
+              <li class="space"><a href="#space">Пространство</a></li>
+              <li class="booking">
+                <a href="#bookingg">Онлайн бронирование</a>
+              </li>
+              <li class="prices"><a href="#prices">Тарифы</a></li>
+              <li class="events"><a href="#events">Мероприятия</a></li>
+              <li class="news"><a href="#news">Новости</a></li>
+              <li class="policy">
+                <a href="#policy">Политика конфиденциальности</a>
+              </li>
+              <li class="rules"><a href="#rules">Правила пространства</a></li>
+            </ul>
+          </div>
+          <div class="logo">
+            <div class="pentagon">
+              <img src="../img/pentagon.png" alt="" />
+            </div>
+            <div class="logo-wrapper">
+              <img src="../img/logo.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="contacts-bot">
+          <p class="mail">
+            <img src="../img/footer/mail.png" alt="" />
+            hello@smartpoint.me
+          </p>
+          <p class="adress">
+            <img src="../img/footer/adress.png" alt="" />
+            г. Алматы, ул. Байзакова, 280
+          </p>
+        </div>
+        <div class="vidgets">
+          <div style="display: none" class="border-bot"></div>
+          <img class="inst" src="../img/footer/insta.png" alt="" />
+          <img class="face" src="../img/footer/face.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="footer">All rights reserved © 2021 smartpoint.me</div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {}
+  },
+}
+</script>
+<style scoped>
+.footer-container {
+  margin: 0 auto;
+}
+@media (min-width: 1301px) {
+  .footer-container {
+    width: 1200px;
+  }
+  .footer-wrapper {
+    display: flex;
+  }
+}
+@media (max-width: 650px) {
+  .contacts-wrapper {
+    /* position: relative !important; */
+    left: 10vw !important;
+  }
+  .nav{
+      left: 14vw !important;
+  }
+  .contacts-bot{
+      left: 11vw !important;
+  }
+  .vidgets{
+      left: 22vw !important;
+  }
+
+}
+@media (max-width: 1300px) {
+  .pentagon {
+    position: relative;
+    right: -19vw;
+    top: 13vh;
+  }
+  .logo-wrapper {
+    position: relative;
+    top: 18vh;
+    left: 22vw;
+  }
+  .footer {
+    position: relative;
+    top: 12vh;
+  }
+  .wrapper {
+    height: 90vh !important; 
+  }
+  .nav ul {
+    /* text-align: center; */
+  }
+  .nav {
+    position: relative;
+    top: 23vh;
+    left: 40vw;
+  }
+  .contacts-wrapper {
+    position: relative;
+    left: 32vw;
+  }
+  .vidgets {
+    position: relative;
+    bottom: 28vh;
+    left: 38vw;
+    padding-bottom: 10px;
+  }
+  .contacts-bot {
+    position: relative !important;
+    bottom: 31vh !important;
+    left: 37vw;
+  }
+  .footer-container {
+    width: 1000px;
+  }
+  .border-bot {
+    border-bottom: 1px solid #fff45e;
+    display: block !important;
+    position: relative;
+    width: 200px;
+    left: -2vw;
+    margin-bottom: 30px;
+    /* padding-bottom: 30px; */
+  }
+  .vidgets {
+    bottom: 28vh !important;
+  }
+}
+* {
+  scroll-behavior: smooth;
+}
+.footer {
+  text-align: center;
+  height: 30px;
+  padding: 10px;
+  color: grey;
+  background-color: #fff45e;
+}
+.pentagon img {
+  position: absolute;
+  bottom: 5px;
+  /* width: 100px; */
+}
+.contacts-bot {
+  position: relative;
+  bottom: 12vh;
+}
+.contacts img {
+  position: relative;
+  left: -20%;
+  top: 1.5vh;
+}
+.contacts p {
+  padding-bottom: 5px;
+}
+.contacts-name p {
+  padding-bottom: 5px;
+}
+.wrapper {
+  /* margin-top: 50px; */
+  overflow: hidden;
+  padding-top: 50px;
+  height: 43vh;
+  color: white;
+  background-color: #1d1d1d;
+  font-family: sans-serif;
+  /* background-color: red; */
+}
+.inner-wrapper {
+  margin: 0 auto;
+  width: 1200px;
+}
+.phone-img {
+  display: flex;
+}
+.contacts-name {
+  margin-left: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  color: #9a9a9a;
+  top: 2vh;
+}
+.contacts {
+  font-size: 1.2;
+}
+.contacts-wrapper {
+  display: flex;
+  flex-grow: 3;
+  width: 453px;
+  flex-grow: 3;
+  /* border-right: 1px solid #fff45e; */
+  margin-right: 30px;
+  /* margin: 0 auto; */
+}
+.nav ul li {
+  padding-bottom: 10px;
+  flex-grow: 3;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.mail {
+  padding-bottom: 20px;
+}
+.mail img {
+  position: absolute;
+  left: -30px;
+  /* margin-ri */
+}
+.adress img {
+  position: absolute;
+  left: -30px;
+}
+.logo {
+  flex-grow: 1;
+  padding-left: 100p;
+  position: relative;
+  left: 90px;
+  top: 54px;
+}
+.logo img {
+  width: 287px;
+}
+.vidgets {
+  position: relative;
+  bottom: 8vh;
+}
+.inst {
+  margin-right: 50px;
+}
+</style>
