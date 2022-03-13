@@ -2,18 +2,18 @@
   <div>
     <!-- <App/> -->
     <!-- <Header /> -->
-    <!-- <Main />
-    <Offer />
-    <About-us />
-    <Benefits />
-    <Community />
-    <Booking />
-    <Prices />
-    <Coworking-price />
-    <Additional-service/>
-    <Events/>
-    <Space/>
-    <News-section/> -->
+    <!-- <Main /> -->
+    <!-- <Offer /> -->
+    <!-- <About-us /> -->
+    <!-- <Benefits /> -->
+    <!-- <Community /> -->
+    <!-- <Booking /> -->
+    <!-- <Prices /> -->
+    <!-- <Coworking-price /> -->
+    <!-- <Additional-service/> -->
+    <!-- <Events/> -->
+    <!-- <Space/> -->
+    <!-- <News-section/> -->
     <Gallery/>
     <!-- <Our-team/> -->
     <!-- <Carousel/> -->

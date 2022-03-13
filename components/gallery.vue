@@ -76,39 +76,27 @@
       </div>
       <div v-if="gallery">
         <button class="btn" @click="gallery = false">x</button>
-        <div class="gallery-background"></div>
+        <div class="gallery-background">
         <div class="gallery-slider">
           <div class="top-slides">
-            <hooper group="group1" :settings="hooperSettings2">
-              <slide v-for="el in img" :key="el.id">
-                <img
-                  class="top-img"
-                  style="width: 300px"
-                  :src="el.image"
-                  alt=""
-                />
-              </slide>
-            </hooper>
+            <hooper group="group1">
+  <slide v-for="el in img" :key="el.id">
+    <div class="slide-img">
+    <img :src="el.image" alt="">
+    </div>
+  </slide>
+</hooper>
+
+<hooper group="group1" :itemsToShow="3" :centerMode="true">
+<slide v-for="el in img" :key="el.id">
+    <div class="slide-img">
+    <img :src="el.image" alt="">
+    </div>
+  </slide>
+  <hooper-navigation slot="hooper-addons"></hooper-navigation>  
+</hooper>
           </div>
-          <div class="bot-slides">
-            <hooper
-              class="bot-slides"
-              group="group1"
-              :settings="hooperSettings"
-              :centerMode="true"
-            >
-              <slide v-for="el in img" :key="el.id">
-                <img
-                  class="bot-img"
-                  style="width: 150px"
-                  :src="el.image"
-                  alt=""
-                />
-              </slide>
-              <hooper-navigation slot="hooper-addons"></hooper-navigation>
-              <hooper-pagination slot="hooper-addons"></hooper-pagination>
-            </hooper>
-          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -173,6 +161,14 @@ export default {
 }
 </script>
 <style scoped>
+.slide-img{
+  /* max-width: 100%; */
+  width: 300px;
+  height: auto;
+}
+.slide-img img{
+  max-width: 100%;
+}
 .hooper-container {
   margin: 0 auto;
 }
@@ -351,19 +347,23 @@ export default {
   height: auto;
 }
 .gallery-slider {
-  transition: opacity 0.2s ease;
-  position: fixed;
-  /* top: 190px; */
-  top: 0;
-  left: 0;
-  display: table;
-  /* margin: 0 auto; */
-  z-index: 10;
-  text-align: center;
-  width: 1200px;
-  padding-left: 200px;
-  /* height: 100px; */
-  /* background-color: aliceblue; */
+ transition: opacity 0.2s ease; 
+    width: 1200px;
+    margin-left: 40vw;
+    margin-top: 29vh;
+    color: white;
+    /* position: fixed; */
+    /* top: 190px; */
+    /* top: 0; */
+    /* left: 0; */
+    /* display: table; */
+    /* margin: 0 auto; */
+    /* z-index: 10; */
+    /* margin: 0 auto; */
+    /* text-align: center; */
+    /* padding-left: 200px; */
+    /* height: 100px; */
+    /* background-color: aliceblue; */
 }
 .gallery-background {
   transition: opacity 0.2s ease;
