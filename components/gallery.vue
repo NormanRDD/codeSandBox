@@ -1,103 +1,122 @@
 <template>
   <div id="gallery" class="gallery-wrapper">
-    <div class="header">
-      <p class="background-header">ГАЛЛЕРЕЯ</p>
-      <h1 class="inner-header">ГАЛЛЕРЕЯ</h1>
-    </div>
-    <div class="gallery-container">
-      <div class="photos">
-        <div class="img-wrapper">
-          <img
-            @click="gallery = true"
-            src="https://smartpoint.me/_nuxt/img/gallery-1.079817e.jpg"
-            alt=""
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            @click="gallery = true"
-            src="https://smartpoint.me/_nuxt/img/gallery-2.3772fbc.jpg"
-            alt=""
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            @click="gallery = true"
-            src="https://smartpoint.me/_nuxt/img/gallery-3.16e249f.jpg"
-            alt=""
-          />
-        </div>
-        <div class="img-wrapper">
-          <img
-            @click="gallery = true"
-            src="https://smartpoint.me/_nuxt/img/gallery-4.ae8dba0.jpg"
-            alt=""
-          />
-        </div>
-        <div class="mini-photos">
-          <div class="mini-top">
-            <div class="mini-img">
-              <img
-                class="long-img"
-                @click="gallery = true"
-                src="https://smartpoint.me/_nuxt/img/gallery-1.079817e.jpg"
-                alt=""
-              />
-            </div>
-
-            <div class="mini-img">
-              <img
-                class="short-img"
-                @click="gallery = true"
-                src="https://smartpoint.me/_nuxt/img/gallery-2.3772fbc.jpg"
-                alt=""
-              />
-            </div>
+    <div v-if="gallery">
+      <button class="btn" @click=";(gallery = false), (isBlur = false)">
+        x
+      </button>
+      <div class="gallery-background">
+        <div class="gallery-slider">
+          <div class="top-slides">
+            <button class="prev-btn" @click.prevent="slidePrev">></button>
+            <hooper group="group1">
+              <slide v-for="el in img" :key="el.id">
+                <div class="top-img">
+                  <img :src="el.image" alt="" />
+                  <!-- <img src="../img/beni.jpg" alt="" /> -->
+                </div>
+              </slide>
+            </hooper>
+            <button class="next-btn" @click.prevent="slideNext">></button>
           </div>
-          <div class="mini-bot">
-            <div class="mini-img">
-              <img
-                class="short-img"
-                @click="gallery = true"
-                src="https://smartpoint.me/_nuxt/img/gallery-3.16e249f.jpg"
-                alt=""
-              />
-            </div>
-            <div class="mini-img">
-              <img
-                class="long-img"
-                @click="gallery = true"
-                src="https://smartpoint.me/_nuxt/img/gallery-4.ae8dba0.jpg"
-                alt=""
-              />
-            </div>
+          <div class="bot-slides">
+            <hooper
+              ref="carousel"
+              @slide="updateCarousel"
+              group="group1"
+              :itemsToShow="3"
+              :centerMode="true"
+            >
+              <slide v-for="el in img" :key="el.id">
+                <div class="bot-img">
+                  <!-- <img src="../img/beni.jpg" alt="" /> -->
+
+                  <img :src="el.image" alt="" />
+                </div>
+              </slide>
+              <!-- <hooper-navigation slot="hooper-addons"></hooper-navigation> -->
+            </hooper>
           </div>
         </div>
       </div>
-      <div v-if="gallery">
-        <button class="btn" @click="gallery = false">x</button>
-        <div class="gallery-background">
-        <div class="gallery-slider">
-          <div class="top-slides">
-            <hooper group="group1">
-  <slide v-for="el in img" :key="el.id">
-    <div class="slide-img">
-    <img :src="el.image" alt="">
     </div>
-  </slide>
-</hooper>
+    <div v-bind:class="{ blur: isBlur }">
+      <div class="header">
+        <p class="background-header">ГАЛЛЕРЕЯ</p>
+        <h1 class="inner-header">ГАЛЛЕРЕЯ</h1>
+      </div>
+      <div class="gallery-container">
+        <div class="photos">
+          <div class="img-wrapper">
+            <img
+              @click=";(gallery = true), (isBlur = true)"
+              src="https://smartpoint.me/_nuxt/img/gallery-1.079817e.jpg"
+              alt=""
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              @click=";(gallery = true), (isBlur = true)"
+              src="https://smartpoint.me/_nuxt/img/gallery-2.3772fbc.jpg"
+              alt=""
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              @click=";(gallery = true), (isBlur = true)"
+              src="https://smartpoint.me/_nuxt/img/gallery-3.16e249f.jpg"
+              alt=""
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              @click=";(gallery = true), (isBlur = true)"
+              src="https://smartpoint.me/_nuxt/img/gallery-4.ae8dba0.jpg"
+              alt=""
+            />
+          </div>
+          <div class="mini-photos">
+            <div class="mini-top">
+              <div class="mini-img">
+                <img
+                  class="long-img"
+                  @click=";(gallery = true), (isBlur = true)"
+                  src="https://smartpoint.me/_nuxt/img/gallery-1.079817e.jpg"
+                  alt=""
+                />
+              </div>
 
-<hooper group="group1" :itemsToShow="3" :centerMode="true">
-<slide v-for="el in img" :key="el.id">
-    <div class="slide-img">
-    <img :src="el.image" alt="">
-    </div>
-  </slide>
-  <hooper-navigation slot="hooper-addons"></hooper-navigation>  
-</hooper>
+              <div class="mini-img">
+                <img
+                  class="short-img"
+                  @click=";(gallery = true), (isBlur = true)"
+                  src="https://smartpoint.me/_nuxt/img/gallery-2.3772fbc.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="mini-bot">
+              <div class="mini-img">
+                <img
+                  class="short-img"
+                  @click=";(gallery = true), (isBlur = true)"
+                  src="https://smartpoint.me/_nuxt/img/gallery-3.16e249f.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="mini-img">
+                <img
+                  class="long-img"
+                  @click=";(gallery = true), (isBlur = true)"
+                  src="https://smartpoint.me/_nuxt/img/gallery-4.ae8dba0.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
           </div>
         </div>
-        </div>
+
+        <!-- /////////////////////////////hooper//////////////////////////////////// -->
+        <!-- /////////////////////////////hooper//////////////////////////////////// -->
       </div>
     </div>
   </div>
@@ -121,6 +140,8 @@ export default {
   },
   data() {
     return {
+      isBlur: false,
+      carouselData: 0,
       ip: '',
       img: '',
       gallery: '',
@@ -134,6 +155,11 @@ export default {
       },
     }
   },
+  watch: {
+    carouselData() {
+      this.$refs.carousel.slideTo(this.carouselData)
+    },
+  },
   methods: {
     async gal() {
       const ip = await this.$axios.$get('https://smartpoint.me/api/gallery/')
@@ -145,14 +171,23 @@ export default {
           }
         }
       }
+      this.img = arr
       // console.log(arr.length)
       // console.log(arr)
-      this.img = arr
       //   ip.forEach(e => {
       //       e.gallery_image.forEach(j => {
       //           arr.push(j)
       //       })
       //   })
+    },
+    slidePrev() {
+      this.$refs.carousel.slidePrev()
+    },
+    slideNext() {
+      this.$refs.carousel.slideNext()
+    },
+    updateCarousel(payload) {
+      this.myCarouselData = payload.currentSlide
     },
   },
   created() {
@@ -161,14 +196,30 @@ export default {
 }
 </script>
 <style scoped>
-.slide-img{
-  /* max-width: 100%; */
-  width: 300px;
-  height: auto;
+.prev-btn {
+  position: relative;
+  left: -4%;
+  transform: rotateY(180deg);
+  font-size: 42px;
+  font-family: sans-serif;
+  border: 0px;
+  height: 3vh;
+  color: #fff45e;
+  background-color: transparent;
 }
-.slide-img img{
-  max-width: 100%;
+.next-btn {
+  position: relative;
+  font-size: 42px;
+  font-family: sans-serif;
+  border: 0px;
+  height: 3vh;
+  color: #fff45e;
+  background-color: transparent;
 }
+li.hooper-slide {
+  /* width: 300px !important; */
+}
+
 .hooper-container {
   margin: 0 auto;
 }
@@ -181,6 +232,13 @@ export default {
   margin: 0 auto;
 }
 @media (min-width: 1201px) {
+  .next-btn {
+    left: -54%;
+    top: 19vh;
+  }
+  .prev-btn {
+    top: 19vh;
+  }
   .gallery-container {
     width: 1200px;
   }
@@ -214,6 +272,13 @@ export default {
 @media (max-width: 1200px) {
   .gallery-container {
     width: 800px;
+  }
+  .next-btn {
+    left: -71%;
+    top: 15vh;
+  }
+  .prev-btn {
+    top: 15vh;
   }
   .background-header {
     top: 110px;
@@ -305,18 +370,49 @@ export default {
     display: block !important;
   }
 }
-.top-img {
-  width: 100%;
-  height: 100%;
-  /* width: 500px !important; */
-  /* height: auto; */
+@media (min-width: 1201px) {
+  .top-img {
+    width: 500px;
+    height: 100%;
+  }
+  .bot-img {
+    width: 220px;
+  }
+}
+@media (max-width: 1200px) {
+  .top-img {
+    width: 300px;
+    height: 100%;
+  }
+  .bot-img {
+    width: 120px;
+  }
+}
+@media (max-width: 700px) {
+  .prev-btn {
+    top: 5vh !important;
+  }
+  .next-btn {
+    top: 5vh !important;
+    left: -81% !important;
+  }
+  .top-img {
+    width: 200px !important;
+    height: 100%;
+  }
+  .bot-img {
+    width: 70px !important;
+  }
+}
+.top-img img {
+  max-width: 100%;
+}
+.bot-img img {
+  width: 100% !important;
 }
 .bot-slide {
   height: auto;
   width: 150px;
-}
-.bot-img {
-  width: 100px !important;
 }
 .btn-wrapper {
   background-color: red;
@@ -334,36 +430,40 @@ export default {
   font-family: sans-serif;
   font-size: 34px;
   z-index: 999;
-  left: 1172px;
-  bottom: 509px;
+  left: 92%;
+  bottom: 84%;
 }
 .bot-slides {
   top: 15px;
-  right: 76px;
+  position: relative;
+  right: 20vw;
+  width: 100vw;
 }
 .top-slides {
-  width: 300px;
+  /* width: 300px; */
   margin-right: 10px;
-  height: auto;
+  display: flex;
+  height: 52%;
+  margin-bottom: 50px;
 }
 .gallery-slider {
- transition: opacity 0.2s ease; 
-    width: 1200px;
-    margin-left: 40vw;
-    margin-top: 29vh;
-    color: white;
-    /* position: fixed; */
-    /* top: 190px; */
-    /* top: 0; */
-    /* left: 0; */
-    /* display: table; */
-    /* margin: 0 auto; */
-    /* z-index: 10; */
-    /* margin: 0 auto; */
-    /* text-align: center; */
-    /* padding-left: 200px; */
-    /* height: 100px; */
-    /* background-color: aliceblue; */
+  transition: opacity 0.2s ease;
+  width: 1200px;
+  margin-left: 30vw;
+  margin-top: 21vh;
+  color: white;
+  /* position: fixed; */
+  /* top: 190px; */
+  /* top: 0; */
+  /* left: 0; */
+  /* display: table; */
+  /* margin: 0 auto; */
+  /* z-index: 10; */
+  /* margin: 0 auto; */
+  /* text-align: center; */
+  /* padding-left: 200px; */
+  /* height: 100px; */
+  /* background-color: aliceblue; */
 }
 .gallery-background {
   transition: opacity 0.2s ease;
@@ -378,7 +478,13 @@ export default {
   display: table;
 }
 .gallery-wrapper {
+  /* filter: blur(4px); */
+
   font-family: sans-serif;
+  /* overflow: hidden; */
+}
+.blur {
+  filter: blur(4px);
 }
 .photos {
   justify-content: center;

@@ -140,3 +140,11 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+/* ul.hooper-track {
+  transform: translate(0px, 0px) !important;
+} */
+/* .bot-slides li.hooper-slide{
+  width: 250px !important;
+} */
+@media(min-width:1200px){
+}
